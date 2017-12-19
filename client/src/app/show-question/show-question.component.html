@@ -1,0 +1,26 @@
+<div>
+
+  <form (submit)="goHome()">
+    <input type="submit" value="Home">
+  </form>
+
+  <form (submit)="logout()">
+    <button type="submit">Log Out</button>
+  </form>
+
+<a [routerLink]="['answer']">Answer this Question</a>
+
+
+  <h1>{{question.name}} - "{{question.question}}"</h1>
+  <p>{{question.description}}</p>
+
+  <div *ngFor="let answer of question.answers">
+    <p>{{answer.name}}</p>
+    <p>{{answer.answer}}</p>
+    <p>{{answer.detail}}</p>
+    <p>{{answer.likes}} likes</p>
+    <form (submit)="like(answer)">
+      <input type="submit" value="Like!">
+    </form>
+  </div>
+</div>

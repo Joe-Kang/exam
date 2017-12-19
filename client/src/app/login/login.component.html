@@ -1,0 +1,5 @@
+<form (submit)="onSubmit()" #login="ngForm">
+  Your Name: <input type="text" name="name" required [(ngModel)]="name">
+  <div *ngIf="name && name.length<2">Name must be longer than 2</div>
+  <button type="submit" [disabled]="!login.valid">Login</button>
+</form>

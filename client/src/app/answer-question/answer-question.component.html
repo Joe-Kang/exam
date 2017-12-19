@@ -1,0 +1,29 @@
+<div>
+
+  <form (submit)="goHome()">
+    <input type="submit" value="Home">
+  </form>
+
+  <form (submit)="goQuestion(question._id)">
+      <input type="submit" value="Go Back to Question">
+    </form>
+
+  <form (submit)="logout()">
+    <button type="submit">Log Out</button>
+  </form>
+
+  <h1>{{question.name}} - "{{question.question}}"</h1>
+  <p>{{question.description}}</p>
+
+  <form (submit)="createNewAnswer()" #Answer="ngForm">
+    Your Answer: <textarea name="answer" cols="30" rows="10" required minlength="10" [(ngModel)]="answer"></textarea><br>
+    <div *ngIf="answer.length<8 && answer.length!=0">Answer must be at least 5 characters</div> <br>
+    Supporting details for your answer (optional): <textarea name="detail" cols="30" rows="10" [(ngModel)]="detail"></textarea>
+    <input type="submit" [disabled]="!Answer.valid" value="Submit">
+  </form>
+
+  <form (submit)="goHome()">
+    <input type="submit" value="Cancel">
+  </form>
+
+</div>

@@ -1,0 +1,32 @@
+<div>
+  <h1>Hello {{name.name}}</h1>
+  <form (submit)="logout()">
+    <button type="submit">Log Out</button>
+  </form>
+
+  <form (submit)="newQuestion()">
+    <button type="submit">Add a Question</button>
+  </form>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Question</th>
+        <th>Answers</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let question of questions">
+        <td scope="row">{{question.question}}</td>
+        <td>{{question._answers.length}}</td>
+        <td>
+          <a [routerLink]="['question', question._id]">Show</a>
+          <a [routerLink]="['question', question._id, 'answer']">Answer</a>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</div>

@@ -1,0 +1,22 @@
+<div>
+  <form (submit)="goHome()">
+    <input type="submit" value="Home">
+  </form>
+  <form (submit)="logout()">
+    <button type="submit">Log Out</button>
+  </form>
+
+  <h1>New Question</h1>
+
+  <form (submit)="createNewQuestion()" #Question="ngForm">
+    Question: <textarea name="question" cols="30" rows="10" required minlength="10" [(ngModel)]="question"></textarea><br>
+    <div *ngIf="question.length<8 && question.length!=0">Question must be at least 10 characters</div> <br>
+    Description(optional): <textarea name="description" cols="30" rows="10" [(ngModel)]="description"></textarea>
+    <input type="submit" [disabled]="!Question.valid" value="Submit">
+  </form>
+
+  <form (submit)="goHome()">
+    <input type="submit" value="Cancel">
+  </form>
+
+</div>
